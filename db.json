@@ -1,0 +1,85 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "imgSrc": "../../../assets/img.jpg",
+      "destTitle": "Bora Bora",
+      "location": "New Zealand",
+      "grade": "CULTURAL RELAX",
+      "fees": "$700",
+      "description": "The epitome of romance, Bora Bora is one of the best travel destinations in the World. This place is known for its luxurious stays and adventurous activities"
+    },
+    {
+      "id": 2,
+      "imgSrc": "../../../assets/paris.jpg",
+      "destTitle": "Paris",
+      "location": "France",
+      "grade": "CITY BREAK",
+      "fees": "$800",
+      "description": "The City of Light needs no introduction. Paris has it all: world-famous landmarks, museums, galleries, food, wine, and romantic walks along the Seine river."
+    },
+    {
+      "id": 3,
+      "imgSrc": "../../../assets/tokyo.jpg",
+      "destTitle": "Tokyo",
+      "location": "Japan",
+      "grade": "CULTURAL ADVENTURE",
+      "fees": "$1000",
+      "description": "Tokyo is the capital of Japan and one of the most vibrant cities in the world. It offers a mix of traditional Japanese culture and modern technology, making it a unique destination."
+    },
+    {
+      "id": 4,
+      "imgSrc": "../../../assets/rome.jpg",
+      "destTitle": "Rome",
+      "location": "Italy",
+      "grade": "CITY BREAK",
+      "fees": "$600",
+      "description": "Rome is the eternal city, known for its rich history, art, and architecture. It has something to offer for everyone, from ancient ruins to delicious Italian cuisine."
+    },
+    {
+      "id": 5,
+      "imgSrc": "../../../assets/sydney.jpg",
+      "destTitle": "Sydney",
+      "location": "Australia",
+      "grade": "BEACH HOLIDAY",
+      "fees": "$900",
+      "description": "Sydney is a vibrant city with a stunning harbour, beautiful beaches, and a laid-back lifestyle. It is a perfect destination for a beach holiday."
+    },
+    {
+      "id": 6,
+      "imgSrc": "../../../assets/sahara.jpg",
+      "destTitle": "Sahara Desert",
+      "location": "Tunisie",
+      "grade": "DESERT EXPEDITION",
+      "fees": "$100",
+      "description": "Embark on a desert adventure and explore the vast expanse of the Sahara Desert with its stunning sand dunes and nomadic culture."
+    },
+    {
+      "id": 7,
+      "imgSrc": "../../../assets/new-york.jpg",
+      "destTitle": "New York",
+      "location": "USA",
+      "grade": "CITY BREAK",
+      "fees": "$1200",
+      "description": "New York City is the city that never sleeps. It is a cultural hub, a fashion capital, and a foodie paradise. There is always something to do or see in New York."
+    },
+    {
+      "id": 8,
+      "imgSrc": "../../../assets/barcelona.jpg",
+      "destTitle": "Barcelona",
+      "location": "Spain",
+      "grade": "CITY BREAK",
+      "fees": "$600",
+      "description": "Barcelona is a vibrant city with a rich history, art, and architecture. It is famous for its food, wine, and culture."
+    },
+    {
+      "id": 9,
+      "imgSrc": "../../../assets/camping.jpg",
+      "destTitle": "Camping in Yosemite",
+      "location": "United States",
+      "grade": "ADVENTURE",
+      "fees": "$300",
+      "description": "Experience the great outdoors in Yosemite National Park with a camping trip. Enjoy hiking, rock climbing, and other outdoor activities in this breathtaking destination."
+    }
+  ]
+}

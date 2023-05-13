@@ -1,0 +1,281 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
+<section class="home">
+  <div class="overlay"></div>
+  <video [src]="vdbg" muted autoplay loop type="video/mp4"></video>
+  <div class="homeContent container">
+    <div class="textDiv">
+      <span data-aos="fade-up" class="smallText"> Our Packages </span>
+
+      <h1 data-aos="fade-up" class="homeTitle">Search your Holiday</h1>
+    </div>
+
+    <div data-aos="fade-up" class="cardDiv grid">
+      <div class="destinationInput">
+        <label htmlFor="city"> Search your destination : </label>
+        <div class="input flex">
+          <input type="text" placeholder="Enter name here ....." />
+          <i class="icon"><fa-icon [icon]="faMap"></fa-icon></i>
+        </div>
+      </div>
+
+      <div class="dateInput">
+        <label htmlFor="date"> Select your date : </label>
+        <div class="input flex">
+          <input type="date" />
+        </div>
+      </div>
+
+      <div class="priceInput">
+        <div class="label_total flex">
+          <label htmlfor="price"> Max price : </label>
+          <h3 class="total">$5000</h3>
+        </div>
+        <div class="input flex">
+          <input type="range" max="5000" min="1000" />
+        </div>
+      </div>
+
+      <div class="searchOption flex">
+        <i class="icon"><fa-icon [icon]="faFilter"></fa-icon></i>
+        <span>MORE FILTERS</span>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" class="homeFooterIcons flex">
+      <div class="rightIcons">
+        <i class="icon"><fa-icon [icon]="faFacebook"></fa-icon></i>
+        <i class="icon"><fa-icon [icon]="faInstagram"></fa-icon></i>
+        <i class="icon"><fa-icon [icon]="faTwitter"></fa-icon></i>
+      </div>
+
+      <div class="leftIcons">
+        <i class="icon"><fa-icon [icon]="faList"></fa-icon></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="main container section">
+  <div class="secTitle">
+    <h3 data-aos="fade-right" class="title">Most Popular Tours</h3>
+  </div>
+  <button
+    type="button"
+    (click)="clickAddBook()"
+    (click)="openModal()"
+    class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    +
+  </button>
+
+  <div class="secContent grid">
+    <div
+      data-aos="fade-up"
+      *ngFor="let item of Data1"
+      class="singleDestination"
+    >
+      <div class="imageDiv">
+        <img [src]="item.imgSrc" [alt]="item.destTitle" />
+      </div>
+
+      <div class="cardInfo">
+        <h4 class="destTitle">{{ item.destTitle }}</h4>
+        <span class="continent flex">
+          <i class="material-icons icon">location_on</i>
+          <span class="name">{{ item.location }}</span>
+        </span>
+
+        <div class="fees flex">
+          <div class="grade">
+            <span>{{ item.grade }} <small>+1</small></span>
+          </div>
+
+          <div class="price">
+            <h5>{{ item.fees }}</h5>
+          </div>
+        </div>
+
+        <div class="desc">
+          <p>{{ item.description }}</p>
+        </div>
+
+        <button class="btn flex">
+          DETAILS
+          <i class="icon"><fa-icon [icon]="faClipboard"></fa-icon></i>
+        </button>
+        <br />
+        <div>
+          <button
+            (click)="deleteAllBook(item)"
+            class="py-2 px-4 bg-red-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            (click)="openModal()"
+            (click)="onEdit(item)"
+            class="py-2 px-4 bg-yellow-300 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    [ngClass]="{ hidden: !showModal }"
+    class="fixed z-10 inset-0 overflow-y-auto"
+    aria-labelledby="modal-title"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div
+      class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+    >
+      <div
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        aria-hidden="true"
+      ></div>
+
+      <span
+        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+        aria-hidden="true"
+        >&#8203;</span
+      >
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <h1
+            class="text-lg font-medium leading-6 text-gray-900"
+            id="modal-title"
+          >
+            Add Book
+          </h1>
+
+          <div class="mt-5">
+            <form [formGroup]="formValue">
+              <div class="form-group">
+                <label for="id">ID:</label>
+                <input
+                  formControlName="id"
+                  type="number"
+                  class="form-control"
+                  id="id"
+                  name="id"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="imgSrc">Image source:</label>
+                <input
+                  formControlName="imgSrc"
+                  type="text"
+                  class="form-control"
+                  id="imgSrc"
+                  name="imgSrc"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="destTitle">Destination title:</label>
+                <input
+                  formControlName="destTitle"
+                  type="text"
+                  class="form-control"
+                  id="destTitle"
+                  name="destTitle"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="location">Location:</label>
+                <input
+                  formControlName="location"
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  name="location"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="grade">Grade:</label>
+                <input
+                  formControlName="grade"
+                  type="text"
+                  class="form-control"
+                  id="grade"
+                  name="grade"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fees">Fees:</label>
+                <input
+                  formControlName="fees"
+                  type="text"
+                  class="form-control"
+                  id="fees"
+                  name="fees"
+                  style="border: 1px solid #ced4da"
+                />
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea
+                  formControlName="description"
+                  style="border: 1px solid #ced4da"
+                  class="form-control"
+                  id="description"
+                  name="description"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <button
+            id="cancel"
+            type="button"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            data-dismiss="modal"
+            (click)="closeModal()"
+          >
+            Close
+          </button>
+
+          <button
+            type="button"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 sm:ml-3 sm:w-auto sm:text-sm"
+            data-dismiss="modal"
+            (click)="postBookDetails()"
+            *ngIf="showAdd"
+          >
+            Save changes
+          </button>
+
+          <button
+            type="button"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-yellow-500 text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            (click)="updateBookDetails()"
+            *ngIf="showUpdate"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

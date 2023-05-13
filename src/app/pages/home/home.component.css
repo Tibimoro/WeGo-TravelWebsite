@@ -1,0 +1,593 @@
+/* Colors and Styling */
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+  --greyColor: rgb(247, 247, 247);
+}
+
+/* DEFAULT */
+.grid {
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+span {
+  display: block;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  font-size: 100%;
+}
+
+.spanText {
+  font-size: 14px;
+}
+
+p {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.secTitle {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--PrimaryColor);
+}
+
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn {
+  border: 2px solid var(--PrimaryColor);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  color: var(--PrimaryColor);
+  background: transparent;
+  border-radius: 5px;
+}
+
+/* HOME CSS */
+.home {
+  height: 90vh;
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(rgba(0, 0, 1, 0.42), rgba(0, 0, 1, 0.549)),
+    url(../../../assets/hbg.jpg);
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  row-gap: 3rem;
+}
+
+.home .spanText {
+  color: white;
+  font-weight: 500;
+}
+
+.homeTitle {
+  color: white;
+  padding: 2rem 0;
+  font-size: 40px;
+}
+
+.homeTitle strong {
+  font-weight: 800;
+}
+
+.home .btn {
+  border: 2px solid white;
+  color: white;
+  font-size: 13px;
+  transition: 0.3s;
+  width: max-content;
+}
+
+.home .btn:hover {
+  background: white;
+  color: var(--PrimaryColor);
+  border: 2px solid white;
+}
+
+.cards {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background: #f7f7f7;
+  z-index: 5000;
+}
+
+.singleCard {
+  transform: translateY(-50px);
+  height: 250px;
+  width: 100%;
+  position: relative;
+  transition: 0.5s;
+}
+
+.singleCard::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.593));
+  border-radius: 10px;
+}
+
+.singleCard .imgDiv {
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.singleCard .imgDiv img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.singleCard .textDiv {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  z-index: 5;
+}
+
+.cards .spanText {
+  text-align: center;
+  transform: translateY(-50px);
+  padding-top: 1.5rem;
+  margin: auto;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cards .spanText:hover {
+  font-weight: 600;
+}
+
+.icon {
+  font-size: medium;
+}
+
+.cards .spanText .icon:hover {
+  transition: 0.4s;
+  transform: translate(10px);
+}
+
+.secContainer .tourContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+.tourContainer .singleTour {
+  width: 100%;
+  position: relative;
+  border: 1px solid var(--greyColor);
+  padding-bottom: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+.tourContainer .singleTour:hover {
+  background: var(--cardBG);
+}
+
+.singleTour .imgDiv {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.singleTour .imgDiv img {
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+}
+
+.singleTour .imgDiv img:hover {
+  transform: scale(1.1);
+}
+
+.tourInfo {
+  padding: 0 1rem;
+}
+
+.tourInfo .tourTitle {
+  font-size: 15px;
+  color: var(--PrimaryColor);
+  font-weight: 600;
+}
+
+.stars_review {
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.stars_review .stars {
+  color: rgb(245, 176, 79);
+}
+
+.stars_review .stars .icon {
+  font-size: 14px;
+}
+
+.custReview {
+  font-size: 13px;
+  transform: translateY(-2px);
+}
+
+.tourInfo p {
+  padding-bottom: 1rem;
+}
+
+.tourInfo .btn {
+  color: var(--PrimaryColor);
+  font-size: 14px;
+  border: 2px solid var(--PrimaryColor);
+  transition: 0.3s ease;
+}
+
+.tourInfo .btn:hover {
+  background: var(--PrimaryColor);
+  color: white;
+  border: 2px solid var(--PrimaryColor);
+}
+
+.tourContainer .price {
+  position: absolute;
+  padding: 10px;
+  background: var(--PrimaryColor);
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.discount {
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.discount .secContainer {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount .secContainer video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.discount .secContainer .textDiv {
+  position: absolute;
+  display: grid;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  gap: 1rem;
+}
+
+.discount .secContainer .textDiv .title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.discount .secContainer .textDiv p {
+  opacity: 1;
+}
+
+.input_btn {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input_btn input {
+  background: #c3fff95f;
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 13px;
+  width: 95%;
+  border-radius: 5px;
+}
+
+.input_btn input::placeholder {
+  color: white;
+  font-size: 12px;
+}
+
+.input_btn .btn {
+  background: var(--PrimaryColor);
+  border: none;
+  font-size: 15px;
+  padding: 1rem 2rem;
+  width: 95%;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.input_btn .btn:hover {
+  background: var(--PrimaryColor);
+}
+
+.review {
+  background: #f7f7f7;
+}
+
+.reviewContainer {
+  padding-top: 4rem;
+  margin-top: 4rem;
+  gap: 4rem;
+}
+
+.reviewContainer .singleReview {
+  position: relative;
+  background: white;
+  box-shadow: 0 3px 5px rgb(218, 218, 218);
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.4s ease;
+}
+
+.reviewContainer .singleReview:hover {
+  transform: translateY(-10px);
+}
+
+.singleReview .imgDiv {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  right: 50%;
+  left: 50%;
+  top: -23%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateX(-50%);
+  border: 10px solid white;
+}
+
+.singleReview p {
+  padding: 1rem;
+  line-height: 1.3rem;
+}
+
+.singleReview .name {
+  color: var(--PrimaryColor);
+  font-weight: 600;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 520px) {
+  .cards .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .discount .secContainer .textDiv {
+    gap: 2rem;
+  }
+
+  .discount .secContainer .textDiv .title {
+    font-size: 25px;
+  }
+
+  .discount .secContainer .textDiv p {
+    font-size: 18px;
+    max-width: 500px;
+    padding: 0 3rem;
+  }
+
+  .input_btn .btn {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 574px) {
+  .review .reviewContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .tourContainer .singleTour {
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 0rem;
+  }
+  .singleTour .imgDiv {
+    height: 100%;
+    width: 100%;
+  }
+
+  .tourInfo {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .cards .cardContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 690px) {
+  .homeText {
+    transform: translateX(5rem);
+  }
+
+  .home .spanText {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .homeTitle {
+    color: white;
+    padding: 2rem 0;
+    font-size: 45px;
+  }
+
+  .home .btn {
+    border: 2px solid white;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (min-width: 840px) {
+  .homeText {
+    transform: translateX(10rem);
+  }
+
+  .review .reviewContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    width: 75%;
+    margin: auto;
+  }
+
+  .section {
+    padding: 6rem 0 4;
+  }
+
+  .secTitle {
+    font-size: 30px;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1054px) {
+  .tourInfo .tourTitle {
+    font-size: 18px;
+  }
+
+  .tourInfo .stars_review .custReview {
+    font-size: 14px;
+    transform: translateY(-2.5px);
+  }
+
+  .tourInfo p {
+    font-size: 14px;
+    line-height: 1.5rem;
+  }
+
+  .tourInfo .btn {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .homeText {
+    transform: translateX(20rem);
+  }
+
+  .home .spanText {
+    font-size: 25px;
+  }
+
+  .homeTitle {
+    font-size: 70px;
+  }
+
+  .home .btn {
+    font-size: 22px;
+  }
+
+  .discount .secContainer .textDiv {
+    gap: 2rem;
+  }
+
+  .discount .secContainer .textDiv .title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 1496px) {
+  .tourInfo .tourTitle {
+    font-size: 20px;
+  }
+
+  .tourInfo p {
+    font-size: 15px;
+  }
+
+  .tourInfo .btn {
+    font-size: 15px;
+    width: max-content;
+  }
+
+  .tourInfo .price {
+    font-size: 25px;
+  }
+}

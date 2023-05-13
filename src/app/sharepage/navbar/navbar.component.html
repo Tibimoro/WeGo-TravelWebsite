@@ -1,0 +1,84 @@
+<section class="navBarSection">
+  <header class="header flex">
+    <div class="logoDiv">
+      <a href="" class="logo flex">
+        <i class="icon"><fa-icon [icon]="faEarth"></fa-icon></i>
+        <h1>WeGo.</h1>
+      </a>
+    </div>
+
+    <div class="navBar" *ngIf="menuOpen">
+      <ul class="navLists flex ">
+        <li class="navItem">
+          <a
+            routerLink="/"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="navLink"
+            >Home</a
+          >
+        </li>
+        <li class="navItem">
+          <a routerLink="/Book" routerLinkActive="active-link" class="navLink"
+            >Book</a
+          >
+        </li>
+        <li class="navItem">
+          <a routerLink="/Blogs" routerLinkActive="active-link" class="navLink"
+            >Blogs</a
+          >
+        </li>
+        <li class="navItem">
+          <a routerLink="/Shop" routerLinkActive="active-link" class="navLink"
+            >Purchase</a
+          >
+        </li>
+
+        <button class="btn">
+          <a routerLink="/Account" routerLinkActive="active-link">Account</a>
+        </button>
+      </ul>
+    </div>
+
+      <button mat-icon-button mat [matMenuTriggerFor]="menu" *ngIf="isShopComponent">
+        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+
+      <div class="closeNavbar" [class.open]="menuOpen" (click)="closeMenu()">
+        <i class="icon"><fa-icon [icon]="faXmarkCircle"></fa-icon></i>
+      </div>
+
+    <div class="toggleNavbar" (click)="toggleMenu()" [class.open]="menuOpen">
+      <i class="icon"><fa-icon [icon]="faBars"></fa-icon></i>
+    </div>
+  </header>
+</section>
+<mat-menu #menu="matMenu">
+  <div class="p-3 divide-y divide-solid">
+    <div class="pb-3 flex justify-between">
+      <span class="mr-16">{{itemsQuantity}} Items</span>
+      <a routerLink="cart">View Cart</a>
+    </div>
+    <div *ngIf="cart.items.length" class="py-3">
+      <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
+        {{item.name}} x {{item.quantity}}
+        <span class="font-bold">{{ item.price | currency }}</span>
+      </div>
+    </div>
+    <div class="flex justify-between py-3 font-light">
+      Total:
+      <span class="font-bold">{{ getTotal(cart.items) | currency }}</span>
+    </div>
+    <div class="pt-3 flex justify-between">
+      <button (click)="onClearCart()" class="bg-rose-300 text-white rounded-full w-9 h-9">
+        <mat-icon>remove_shopping_cart</mat-icon>
+      </button>
+      <button
+        routerLink="cart"
+        class="bg-green-300 text-white rounded-full w-9 h-9"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-menu>
